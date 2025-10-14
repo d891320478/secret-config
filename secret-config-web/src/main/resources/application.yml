@@ -1,0 +1,14 @@
+log:
+  path: /data/logs/secret-config
+
+spring:
+  application:
+    name: secret-config
+  data:
+    redis:
+      database: 1
+
+server:
+  port: 9527
+  servlet:
+    context-path: /secret-config
