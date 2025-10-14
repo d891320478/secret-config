@@ -6,12 +6,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.4</version>
+        <version>3.3.13</version>
     </parent>
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.usr</groupId>
+	<groupId>com.upely</groupId>
 	<artifactId>secret-config</artifactId>
 	<packaging>pom</packaging>
 	<name>SecretConfig</name>
@@ -32,7 +32,7 @@
 		<dependencies>
 			<!-- common子模块 -->
 			<dependency>
-				<groupId>com.usr</groupId>
+				<groupId>com.upely</groupId>
 				<artifactId>secret-config-common</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>

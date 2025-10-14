@@ -6,7 +6,7 @@ spring:
     name: secret-config
   data:
     redis:
-      database: 1
+      database: 0
 
 server:
   port: 9527
