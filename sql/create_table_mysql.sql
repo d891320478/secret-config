@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS work_key (
     gmt_create DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     gmt_modified DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY uk_appname_configtype (app_name, config_type)
-)ENGINE=InnoDB CHARSET=utf8mb4;
+)ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 -- 加密配置表
 CREATE TABLE IF NOT EXISTS secret_config (
 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
@@ -18,4 +18,4 @@ CREATE TABLE IF NOT EXISTS secret_config (
     gmt_create DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     gmt_modified DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     UNIQUE KEY uk_appname_configkey_configtype (app_name, config_key, config_type)
-)ENGINE=InnoDB CHARSET=utf8mb4;
+)ENGINE=InnoDB CHARSET=utf8mb4 COLLATE=utf8mb4_bin;

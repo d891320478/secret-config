@@ -1,0 +1,4 @@
+user: main
+pass: '123456'
+address: ip1:port1,ip2:port2
+sentinal: ip1:port1,ip2:port2

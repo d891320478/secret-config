@@ -1,0 +1,6 @@
+driver: postgresql
+db: secret_config
+schema: secret_config
+user: root
+pass: '123456'
+address: ip1:port1,ip2:port2
