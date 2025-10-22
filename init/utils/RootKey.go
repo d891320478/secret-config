@@ -10,7 +10,7 @@ import (
 	"golang.org/x/crypto/pbkdf2"
 )
 
-const root_key_factor = "FjhhKQdXYUMtBUtsX1VuUjkDZy5XCyRzDSIxaSx+dltgHmQIWF4KZVsgPlQ4Bw8ATSkOKC0ud2ECHUBDNigdJXAkBRgfAFMlbmYIaBZDTDhABRJOXmI/M2xUd2hjcmhURFxhXnxza2UpYh9aGyhmPksgVQRkKVsePk10VzA9cyY="
+const root_key_factor = "MDhXaXdjSkpwdEdYUW1uOTVNaGFQbmpWeGVJU1FMWUVsZDZ5cnNxbXVwbUpWV0lrYzREYXF4TGhmZzlVWE5sWG1BMHhERUFVaFdYNElPNmM5dHk3ZUk2NEZhcE1oV0VmeFVzT3B2cW10UHNuNGNidVJPZTBoVEZ3ejZpMUI0elo="
 
 const root_key_length = 32
 
