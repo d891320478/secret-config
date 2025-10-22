@@ -1,5 +1,5 @@
 log:
-  path: /data/logs/secret-config
+  path: ${LOG_PATH:/data/logs/secret-config}
 
 spring:
   application:

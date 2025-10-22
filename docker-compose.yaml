@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  secret-config:
+    image: registry-vpc.cn-hangzhou.aliyuncs.com/htdong/secret-config:1.0.0
+    restart: always
+    ports:
+    - 9527:9527
+    environment:
+      MEMORY: '128'                                                                                                                                   
+    volumes:
+    - /data/config:/data/config #密钥组件路径
+    - /data/logs:/data/logs #日志路径
+    - /etc/hosts:/etc/hosts
