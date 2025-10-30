@@ -32,7 +32,7 @@ public final class SecretConfigService {
     static Map<String, String> secretConfig(String appName, int configType) {
         HttpResult<Map<String, String>> rlt = httpGet(
                 SECRET_CONFIG_DOMAIN
-                        + String.format("/secret-config/config?appName=%s&configType=%d", appName, configType),
+                        + String.format("/secret-config/secret/config?appName=%s&configType=%d", appName, configType),
                 new TypeReference<>() {
                 });
         if (!rlt.isSuccess()) {
@@ -47,7 +47,7 @@ public final class SecretConfigService {
     static String workKey(String appName, int configType) {
         HttpResult<String> rlt = httpGet(
                 SECRET_CONFIG_DOMAIN
-                        + String.format("/secret-config/workKey?appName=%s&configType=%d", appName, configType),
+                        + String.format("/secret-config/secret/workKey?appName=%s&configType=%d", appName, configType),
                 new TypeReference<>() {
                 });
         if (!rlt.isSuccess()) {
@@ -60,13 +60,14 @@ public final class SecretConfigService {
     }
 
     static String rootKey() {
-        HttpResult<List<String>> rtkRlt = httpGet(SECRET_CONFIG_DOMAIN + "/secret-config/allRtk",
+        HttpResult<List<String>> rtkRlt = httpGet(SECRET_CONFIG_DOMAIN + "/secret-config/secret/allRtk",
                 new TypeReference<>() {
                 });
         if (!rtkRlt.isSuccess()) {
             throw new RuntimeException("get rtk error. code = " + rtkRlt.getCode());
         }
-        HttpResult<String> rtsRlt = httpGet(SECRET_CONFIG_DOMAIN + "/secret-config/rts", new TypeReference<>() {
+        HttpResult<String> rtsRlt =
+            httpGet(SECRET_CONFIG_DOMAIN + "/secret-config/secret/rts", new TypeReference<>() {
         });
         if (!rtsRlt.isSuccess()) {
             throw new RuntimeException("get rts error. code = " + rtsRlt.getCode());

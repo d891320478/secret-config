@@ -10,14 +10,14 @@ import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.upely.secretconfig.constants.Constants;
 import com.upely.secretconfig.domain.db.SecretConfigDO;
 import com.upely.secretconfig.domain.db.WorkKeyDO;
-import com.upely.secretconfig.mapper.SecretConfigMapper;
-import com.upely.secretconfig.mapper.WorkKeyMapper;
+import com.upely.secretconfig.service.SecretConfigService;
+import com.upely.secretconfig.service.WorkKeyService;
 
 import jakarta.annotation.Resource;
 
@@ -26,12 +26,13 @@ import jakarta.annotation.Resource;
  * @date 2025年10月12日 20:13:13
  */
 @RestController
+@RequestMapping("/secret")
 public class SecretController {
 
     @Resource
-    private WorkKeyMapper workKeyMapper;
+    private WorkKeyService workKeyService;
     @Resource
-    private SecretConfigMapper secretConfigMapper;
+    private SecretConfigService secretConfigService;
 
     @GetMapping("/allRtk")
     public List<String> getAllRtk() throws IOException {
@@ -46,10 +47,7 @@ public class SecretController {
 
     @GetMapping("/workKey")
     public ResponseEntity<String> workKey(String appName, int configType) {
-        QueryWrapper<WorkKeyDO> qw = new QueryWrapper<>();
-        qw.eq(WorkKeyDO.FIELD_APP_NAME, appName);
-        qw.eq(WorkKeyDO.FIELD_CONFIG_TYPE, configType);
-        WorkKeyDO wk = workKeyMapper.selectOne(qw);
+        WorkKeyDO wk = workKeyService.getByAppNameAndConfigType(appName, configType);
         if (wk == null) {
             return ResponseEntity.notFound().build();
         }
@@ -58,10 +56,7 @@ public class SecretController {
 
     @GetMapping("/config")
     public ResponseEntity<Map<String, String>> config(String appName, int configType) {
-        QueryWrapper<SecretConfigDO> qw = new QueryWrapper<>();
-        qw.eq(SecretConfigDO.FIELD_APP_NAME, appName);
-        qw.eq(SecretConfigDO.FIELD_CONFIG_TYPE, configType);
-        List<SecretConfigDO> list = secretConfigMapper.selectList(qw);
+        List<SecretConfigDO> list = secretConfigService.selectListByAppNameAndConfigType(appName, configType);
         if (list == null || list.size() == 0) {
             return ResponseEntity.notFound().build();
         }

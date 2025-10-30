@@ -7,5 +7,4 @@ import com.upely.secretconfig.domain.db.SecretConfigDO;
  * @author dht31261
  * @date 2025年10月12日 20:26:33
  */
-public interface SecretConfigMapper extends BaseMapper<SecretConfigDO> {
-}
+public interface SecretConfigMapper extends BaseMapper<SecretConfigDO> {}
